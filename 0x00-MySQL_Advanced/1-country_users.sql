@@ -6,3 +6,4 @@ CREATE TABLE
         name varchar(255),
         country ENUM ('US', 'CO', 'TN') NOT NULL DEFAULT 'US'
     );
+

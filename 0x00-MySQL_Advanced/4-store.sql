@@ -1,5 +1,5 @@
 -- trigger that decreases the quantity of an item after adding a new order.
-CREATE TRIGGER IF NOT EXISTS desc_quantity AFTER INSERT ON orders FOR EACH ROW
+CREATE TRIGGER desc_quantity AFTER INSERT ON orders FOR EACH ROW
 UPDATE items
 SET
     quantity = quantity - NEW.number

@@ -8,10 +8,10 @@ BEGIN
     SET
         average_score = (
             SELECT
-                IF(SUM(corrections.score * projects.weight) > 0, SUM(corrections.score * projects.weight) / SUM(projects.weight), 0)
+                IF(SUM(score * weight) > 0, SUM(score * weight) / SUM(weight), 0)
             FROM
-                corrections,
-                projects
+                corrections
+            JOIN Project ON corrections.user_id = users.user_id
             WHERE
                 corrections.user_id = user_id
         )

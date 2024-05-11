@@ -11,7 +11,7 @@ BEGIN
                 IF(SUM(score * weight) > 0, SUM(score * weight) / SUM(weight), 0)
             FROM
                 corrections
-            JOIN projects ON corrections.project_id  = projects.id
+            JOIN projects ON corrections.project_id = projects.id
             WHERE
                 corrections.user_id = user_id;
         )

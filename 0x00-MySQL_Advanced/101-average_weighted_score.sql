@@ -2,16 +2,14 @@
 DROP PROCEDURE IF EXISTS ComputeAverageWeightedScoreForUsers;
 
 DELIMITER //
-CREATE PROCEDURE ComputeAverageWeightedScoreForUsers ()
+CREATE PROCEDURE ComputeAverageWeightedScoreForUsers()
 BEGIN
     UPDATE users
-    SET FOR EACH ROW
-        average_score = (
-            SELECT
-                IF(SUM(score * weight) > 0, SUM(score * weight) / SUM(weight), 0)
-            FROM
-                corrections
-            JOIN projects ON corrections.project_id = projects.id;
+    SET average_score = (
+            SELECT IF (SUM( score * weight) > 0, SUM( score * weight)/ SUM(weight), 0 )
+            FROM corrections
+            JOIN projects ON corrections.project_id = projects.id
         )
+
 END //
 DELIMITER;

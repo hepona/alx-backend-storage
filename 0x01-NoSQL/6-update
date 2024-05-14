@@ -1,6 +1,6 @@
 // add nw attribute in collection
 db.school.update(
-    {name: "Holberton school"},
-    {$set: {address: "972 Mission stree"}},
+    {"name": "Holberton school"},
+    {"$set": {"address": "972 Mission stree"}},
     {multi: true}
 )
